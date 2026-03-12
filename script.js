@@ -218,12 +218,9 @@ function renderBoard() {
   for (let r = 0; r < size; r += 1) {
     for (let c = 0; c < size; c += 1) {
       const cell = document.createElement('button');
-      cell.className = 'intersection';
+      cell.className = 'cell';
       cell.type = 'button';
       cell.setAttribute('aria-label', `row ${r + 1}, col ${c + 1}`);
-      const spacing = size > 1 ? 100 / (size - 1) : 0;
-      cell.style.top = `${r * spacing}%`;
-      cell.style.left = `${c * spacing}%`;
 
       const value = board[r][c];
       if (value !== EMPTY) {
