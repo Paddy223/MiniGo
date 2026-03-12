@@ -54,25 +54,54 @@ h1 {
 
 #board {
   --size: 5;
-  display: grid;
-  grid-template-columns: repeat(var(--size), minmax(36px, 1fr));
-  gap: 0;
-  background: #cda773;
-  border: 2px solid #76552b;
+  --step: calc(100% / (var(--size) + 1));
+  position: relative;
   width: min(90vmin, 560px);
   aspect-ratio: 1;
   margin-top: 1rem;
+  background-color: #cda773;
+  border: 2px solid #76552b;
+  background-position: var(--step) var(--step), var(--step) var(--step);
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent calc(var(--step) - 1px),
+      #87643a calc(var(--step) - 1px),
+      #87643a var(--step),
+      transparent var(--step)
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent calc(var(--step) - 1px),
+      #87643a calc(var(--step) - 1px),
+      #87643a var(--step),
+      transparent var(--step)
+    );
 }
 
-.cell {
-  position: relative;
-  border: 1px solid #87643a;
+.intersection {
+  position: absolute;
+  width: clamp(28px, 8.2%, 48px);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  padding: 0;
   display: grid;
   place-items: center;
+  cursor: pointer;
+}
+
+.intersection:focus-visible {
+  outline: 2px solid #2f6fef;
+  outline-offset: 2px;
 }
 
 .stone {
-  width: 72%;
+  width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
   box-shadow: inset -5px -4px 8px rgba(0, 0, 0, 0.35);
