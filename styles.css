@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f6efe0;
+  color: #2d2418;
+}
+
+.app {
+  width: min(92vw, 760px);
+  padding: 1.25rem;
+}
+
+h1 {
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+.controls {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.controls input,
+.controls button {
+  font: inherit;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid #8b7b60;
+}
+
+.controls button {
+  background: #d2b48c;
+  cursor: pointer;
+}
+
+.status p {
+  margin: 0.35rem 0;
+}
+
+#board {
+  --size: 5;
+  display: grid;
+  grid-template-columns: repeat(var(--size), minmax(36px, 1fr));
+  gap: 0;
+  background: #cda773;
+  border: 2px solid #76552b;
+  width: min(90vmin, 560px);
+  aspect-ratio: 1;
+  margin-top: 1rem;
+}
+
+.cell {
+  position: relative;
+  border: 1px solid #87643a;
+  display: grid;
+  place-items: center;
+}
+
+.stone {
+  width: 72%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset -5px -4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.stone.black {
+  background: radial-gradient(circle at 30% 30%, #555, #111);
+}
+
+.stone.white {
+  background: radial-gradient(circle at 30% 30%, #fff, #d8d8d8);
+  box-shadow: inset -4px -3px 7px rgba(0, 0, 0, 0.18);
+}
