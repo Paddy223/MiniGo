@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniGo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>MiniGo</h1>
+      <p class="subtitle">Play Go on a small board against a lightweight AI.</p>
+
+      <section class="controls">
+        <label for="board-size">Board size</label>
+        <input id="board-size" type="number" min="5" max="13" step="1" value="5" />
+        <button id="new-game">New game</button>
+        <button id="pass">Pass</button>
+      </section>
+
+      <section class="status">
+        <p id="turn">Turn: Black (You)</p>
+        <p id="captures">Captures — You: 0 | AI: 0</p>
+        <p id="message">Click an intersection to place a stone.</p>
+      </section>
+
+      <div id="board" aria-label="Go board"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
